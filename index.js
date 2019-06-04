@@ -22,8 +22,10 @@ wss.bordecast = function (message, ws) {
 }
 wss.on('connection', function (ws) {
   console.log(`[SERVER] connection(), ${ws}, ${wss}`);
+  ws.send('Please enter RoomId')
   ws.on('message', function (message) {
     if(setValueIfUndefined(ws, 'roomId', message)) {
+      ws.send(`you enter room ${message}`)
       return
     }
     console.log(`[SERVER] Received: ${message}`);
