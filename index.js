@@ -13,7 +13,7 @@ const WebSocketServer = WebSocket.Server;
 
 // 实例化:
 const wss = new WebSocketServer({
-    port: 3000
+    port: 8090
 });
 wss.bordecast = function (message, ws) {
   wss.clients.filter(connect => connect.roomId === ws.roomId && connect.roomId !== undefined && connect !== ws).forEach(connect => {
